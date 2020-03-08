@@ -24,8 +24,6 @@ public class KVanilla extends GameMod {
     public void onEnable() {
         instance = this;
 
-        WorldGenerationManager g = getKakaraCore().getWorldGenerationManager();
-        g.registerChunkGenerator(new NormalChunkGenerator());
 
         register(
                 new CoarseDirt(this),
@@ -33,6 +31,9 @@ public class KVanilla extends GameMod {
                 new FineDirt(this),
                 new GrassyDirt(this)
         );
+        WorldGenerationManager g = getKakaraCore().getWorldGenerationManager();
+        g.registerChunkGenerator(new NormalChunkGenerator());
+
     }
 
     public void register(Item... items) {

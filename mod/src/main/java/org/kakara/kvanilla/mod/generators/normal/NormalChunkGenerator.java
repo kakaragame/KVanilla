@@ -1,6 +1,7 @@
 package org.kakara.kvanilla.mod.generators.normal;
 
 import org.kakara.core.Kakara;
+import org.kakara.core.mod.Mod;
 import org.kakara.core.world.ChunkBase;
 import org.kakara.core.world.ChunkGenerator;
 import org.kakara.core.world.region.RegionGrid;
@@ -23,6 +24,11 @@ public class NormalChunkGenerator implements ChunkGenerator {
     }
 
     @Override
+    public Mod getMod() {
+        return KVanilla.getInstance();
+    }
+
+    @Override
     public ChunkBase generateChunk(int seed, ChunkBase chunkBase) {
         RegionGrid grid = new KRegionGrid(seed, KVanilla.getInstance().getKakaraCore());
 
@@ -37,17 +43,17 @@ public class NormalChunkGenerator implements ChunkGenerator {
 
                 int height = getChunkFormat().getWorldHeight();
 
-                chunkBase.setBlock(x, y, z, Kakara.createItemStack(KVanilla.get("Grassy Dirt")));
+                chunkBase.setBlock(x, y, z, Kakara.createItemStack(KVanilla.get("KVanilla:grassy_dirt")));
 
                 for (int i = y - 1; i > 5; i--) {
-                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("Dirt")));
+                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("KVanilla:dirt")));
                 }
 
                 height -= 5;
 
-                for (int i = 0; i < height; i++) {
-                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("Stone")));
-                }
+                //for (int i = 0; i < height; i++) {
+                //    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("stone")));
+                //}
             }
         }
 
