@@ -61,9 +61,5 @@ public class KVanilla extends GameMod {
         return getInstance().getKakaraCore().getItemManager().getItem(name);
     }
 
-    @Override
-    public Logger getLogger() {
-        //Will be deleted later. Just let it sit here to make intellij happy
-        return null;
-    }
+
 }
