@@ -35,25 +35,25 @@ public class NormalChunkGenerator implements ChunkGenerator {
         NoiseGenerator n1 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.05, 3);
         NoiseGenerator n2 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.1, 3);
 
-        for (int x = 0; x < 128; x++) {
-            for (int z = 0; z < 128; z++) {
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
                 int y1 = (int) (n1.GetPerlin(x, 0, z) * 5);
                 int y2 = (int) (n2.GetPerlin(x, 0, z) * 5);
                 int y = y1 + y2;
 
-                int height = getChunkFormat().getWorldHeight();
+                int height = 15;
 
-                chunkBase.setBlock(x, y, z, Kakara.createItemStack(KVanilla.get("KVanilla:grassy_dirt")));
+                y += height;
 
-                for (int i = y - 1; i > 5; i--) {
+                for (int i = 0; i < y - 6; i++) {
+                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("KVanilla:stone")));
+                }
+
+                for (int i = y - 6; i < y; i++) {
                     chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("KVanilla:dirt")));
                 }
 
-                height -= 5;
-
-                //for (int i = 0; i < height; i++) {
-                //    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("stone")));
-                //}
+                chunkBase.setBlock(x, y, z, Kakara.createItemStack(KVanilla.get("KVanilla:grassy_dirt")));
             }
         }
 

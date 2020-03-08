@@ -14,6 +14,7 @@ import org.kakara.kvanilla.mod.items.dirt.CoarseDirt;
 import org.kakara.kvanilla.mod.items.dirt.Dirt;
 import org.kakara.kvanilla.mod.items.dirt.FineDirt;
 import org.kakara.kvanilla.mod.items.dirt.GrassyDirt;
+import org.kakara.kvanilla.mod.items.stone.Stone;
 import org.slf4j.Logger;
 
 @ModInfo(name = "KVanilla", description = "The Vanilla Game for Kakara", authors = "The Kakara Development Team", modType = ModType.REGULAR, version = "1.0-SNAPSHOT")
@@ -24,12 +25,13 @@ public class KVanilla extends GameMod {
     public void onEnable() {
         instance = this;
 
-
         register(
                 new CoarseDirt(this),
                 new Dirt(this),
                 new FineDirt(this),
-                new GrassyDirt(this)
+                new GrassyDirt(this),
+
+                new Stone(this)
         );
         WorldGenerationManager g = getKakaraCore().getWorldGenerationManager();
         g.registerChunkGenerator(new NormalChunkGenerator());
@@ -61,6 +63,4 @@ public class KVanilla extends GameMod {
     public static Item get(String name) {
         return getInstance().getKakaraCore().getItemManager().getItem(name);
     }
-
-
 }
