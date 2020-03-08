@@ -9,11 +9,11 @@ import org.kakara.core.events.player.PlaceEvent;
 import org.kakara.core.mod.Mod;
 import org.kakara.kvanilla.api.bases.DirtBase;
 
-@Name("Dirt")
-@Texture("dirt")
-@Id("dirt")
-public class Dirt extends DirtBase {
-    public Dirt(Mod mod) {
+@Name("Grassy Dirt")
+@Texture("grassy_dirt.png")
+@Id("grassy_dirt")
+public class GrassyDirt extends DirtBase {
+    public GrassyDirt(Mod mod) {
         super(mod);
     }
 

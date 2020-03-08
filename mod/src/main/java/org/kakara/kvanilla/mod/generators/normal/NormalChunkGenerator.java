@@ -8,7 +8,6 @@ import org.kakara.kvanilla.api.KConstants;
 import org.kakara.kvanilla.mod.KRegionGrid;
 import org.kakara.kvanilla.mod.KVanilla;
 import org.kakara.kvanilla.mod.generators.NoiseGenerator;
-import org.kakara.kvanilla.mod.items.dirt.GrassyDirt;
 
 import java.util.Random;
 
