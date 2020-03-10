@@ -35,13 +35,13 @@ public class NormalChunkGenerator implements ChunkGenerator {
         NoiseGenerator n1 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.05, 3);
         NoiseGenerator n2 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.1, 3);
 
-        for (int x = 0; x < 16; x++) {
-            for (int z = 0; z < 16; z++) {
+        for (int x = chunkBase.getX(); x < 4 + chunkBase.getX(); x++) {
+            for (int z = chunkBase.getZ(); z < 4 + chunkBase.getX(); z++) {
                 int y1 = (int) (n1.GetPerlin(x, 0, z) * 5);
                 int y2 = (int) (n2.GetPerlin(x, 0, z) * 5);
                 int y = y1 + y2;
 
-                int height = 15;
+                int height = getChunkFormat().getWorldHeight() / 2;
 
                 y += height;
 
