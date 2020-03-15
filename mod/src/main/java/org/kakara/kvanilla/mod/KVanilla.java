@@ -1,12 +1,10 @@
 package org.kakara.kvanilla.mod;
 
+import org.kakara.core.Kakara;
 import org.kakara.core.game.Item;
 import org.kakara.core.game.ItemManager;
 import org.kakara.core.mod.ModType;
-import org.kakara.core.mod.annotations.ModInfo;
-import org.kakara.core.mod.annotations.OnDisable;
-import org.kakara.core.mod.annotations.OnEnable;
-import org.kakara.core.mod.annotations.Reload;
+import org.kakara.core.mod.annotations.*;
 import org.kakara.core.mod.game.GameMod;
 import org.kakara.core.world.WorldGenerationManager;
 import org.kakara.kvanilla.mod.generators.normal.NormalChunkGenerator;
@@ -15,52 +13,32 @@ import org.kakara.kvanilla.mod.items.dirt.Dirt;
 import org.kakara.kvanilla.mod.items.dirt.FineDirt;
 import org.kakara.kvanilla.mod.items.dirt.GrassyDirt;
 import org.kakara.kvanilla.mod.items.stone.Stone;
-import org.slf4j.Logger;
+import org.kakara.kvanilla.mod.regions.EnchantedForestRegion;
 
 @ModInfo(name = "KVanilla", description = "The Vanilla Game for Kakara", authors = "The Kakara Development Team", modType = ModType.REGULAR, version = "1.0-SNAPSHOT")
 public class KVanilla extends GameMod {
     private static KVanilla instance;
 
-    @OnEnable
-    public void onEnable() {
-        instance = this;
-
-        register(
-                new CoarseDirt(this),
-                new Dirt(this),
-                new FineDirt(this),
-                new GrassyDirt(this),
-
-                new Stone(this)
-        );
-        WorldGenerationManager g = getKakaraCore().getWorldGenerationManager();
-        g.registerChunkGenerator(new NormalChunkGenerator());
-
+    public static Item get(String name) {
+        return Kakara.getItemManager().getItem(name);
     }
 
-    public void register(Item... items) {
-        ItemManager itemManager = getKakaraCore().getItemManager();
-
-        for (Item item : items) {
-            itemManager.registerItem(item, this);
-        }
-    }
-
-    @Reload
-    public void onReload() {
-
-    }
-
-    @OnDisable
-    public void onDisable() {
-
+    @LoadingStage
+    public void loadItems(ItemManager itemManager) {
+        itemManager.registerItem(new CoarseDirt(this), this);
+        itemManager.registerItem(new Dirt(this), this);
+        itemManager.registerItem(new FineDirt(this), this);
+        itemManager.registerItem(new GrassyDirt(this), this);
+        itemManager.registerItem(new Stone(this), this);
     }
 
     public static KVanilla getInstance() {
         return instance;
     }
 
-    public static Item get(String name) {
-        return getInstance().getKakaraCore().getItemManager().getItem(name);
+    @LoadingStage
+    public void loadWorldGen(WorldGenerationManager worldGenerationManager) {
+        worldGenerationManager.registerRegion(new EnchantedForestRegion());
+        worldGenerationManager.registerChunkGenerator(new NormalChunkGenerator());
     }
 }

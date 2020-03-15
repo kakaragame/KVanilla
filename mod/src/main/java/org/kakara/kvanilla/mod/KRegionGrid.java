@@ -1,6 +1,6 @@
 package org.kakara.kvanilla.mod;
 
-import org.kakara.core.KakaraCore;
+import org.kakara.core.GameInstance;
 import org.kakara.core.world.Location;
 import org.kakara.core.world.region.Region;
 import org.kakara.core.world.region.RegionGrid;
@@ -13,9 +13,9 @@ import java.util.Map;
 public class KRegionGrid implements RegionGrid {
     private Map<Location, Region> overrides = new HashMap<>();
     private final NoiseGenerator n;
-    private final KakaraCore kc;
+    private final GameInstance kc;
 
-    public KRegionGrid(int seed, KakaraCore kc) {
+    public KRegionGrid(int seed, GameInstance kc) {
         n = new NoiseGenerator(seed, (float) 0.01, 3);
         this.kc = kc;
     }

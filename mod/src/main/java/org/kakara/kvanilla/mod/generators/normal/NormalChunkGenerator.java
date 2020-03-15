@@ -30,7 +30,7 @@ public class NormalChunkGenerator implements ChunkGenerator {
 
     @Override
     public ChunkBase generateChunk(int seed, ChunkBase chunkBase) {
-        RegionGrid grid = new KRegionGrid(seed, KVanilla.getInstance().getKakaraCore());
+        RegionGrid grid = new KRegionGrid(seed, KVanilla.getInstance().getGameInstance());
 
         NoiseGenerator n1 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.05, 3);
         NoiseGenerator n2 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.1, 3);
