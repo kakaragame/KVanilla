@@ -2,6 +2,7 @@ package org.kakara.kvanilla.mod.generators.normal;
 
 import org.kakara.core.Kakara;
 import org.kakara.core.mod.Mod;
+import org.kakara.core.mod.game.ModChunkGenerator;
 import org.kakara.core.world.ChunkBase;
 import org.kakara.core.world.ChunkGenerator;
 import org.kakara.core.world.region.RegionGrid;
@@ -12,7 +13,11 @@ import org.kakara.kvanilla.mod.generators.NoiseGenerator;
 
 import java.util.Random;
 
-public class NormalChunkGenerator implements ChunkGenerator {
+public class NormalChunkGenerator extends ModChunkGenerator {
+    public NormalChunkGenerator(Mod mod) {
+        super(mod);
+    }
+
     @Override
     public String getName() {
         return "Default";
@@ -23,14 +28,10 @@ public class NormalChunkGenerator implements ChunkGenerator {
         return KConstants.CHUNK_FORMAT;
     }
 
-    @Override
-    public Mod getMod() {
-        return KVanilla.getInstance();
-    }
 
     @Override
     public ChunkBase generateChunk(int seed, ChunkBase chunkBase) {
-        RegionGrid grid = new KRegionGrid(seed, KVanilla.getInstance().getGameInstance());
+        RegionGrid grid = new KRegionGrid(seed, Kakara.getGameInstance());
 
         NoiseGenerator n1 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.05, 3);
         NoiseGenerator n2 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.1, 3);

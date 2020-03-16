@@ -1,12 +1,18 @@
 package org.kakara.kvanilla.mod.regions;
 
 import org.kakara.core.game.Entity;
+import org.kakara.core.mod.Mod;
+import org.kakara.core.mod.game.ModRegion;
 import org.kakara.core.world.Structure;
 import org.kakara.core.world.region.BlockAbove;
 import org.kakara.core.world.region.GenerationLayer;
 import org.kakara.core.world.region.Region;
 
-public class EnchantedForestRegion implements Region {
+public class EnchantedForestRegion extends ModRegion {
+    public EnchantedForestRegion(Mod mod) {
+        super(mod);
+    }
+
     @Override
     public String getName() {
         return "Enchanted Forest";

@@ -38,7 +38,8 @@ public class KVanilla extends GameMod {
 
     @LoadingStage
     public void loadWorldGen(WorldGenerationManager worldGenerationManager) {
-        worldGenerationManager.registerRegion(new EnchantedForestRegion());
-        worldGenerationManager.registerChunkGenerator(new NormalChunkGenerator());
+        System.out.println("Loading");
+        worldGenerationManager.registerRegion(new EnchantedForestRegion(this));
+        worldGenerationManager.registerChunkGenerator(new NormalChunkGenerator(this));
     }
 }
