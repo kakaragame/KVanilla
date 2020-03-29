@@ -34,12 +34,17 @@ public class NormalChunkGenerator extends ModChunkGenerator {
                     Item item;
                     if (y == groundHeight) {
                         item = Kakara.getItemManager().getItem("KVanilla:grassy_dirt");
+                        if (item == null) System.out.println("null Grassy");
                     } else if (y > groundHeight) {
-                        item = null;
+                        continue;
                     } else if (y > groundHeight - 5) {
                         item = Kakara.getItemManager().getItem("KVanilla:dirt");
+                        if (item == null) System.out.println("null dirt");
+
                     } else {
                         item = Kakara.getItemManager().getItem("KVanilla:stone");
+                        if (item == null) System.out.println("null stone");
+
                     }
 
                     chunkBase.setBlock(x, y, z, Kakara.createItemStack(item));

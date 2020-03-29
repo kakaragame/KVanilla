@@ -15,7 +15,6 @@ import org.kakara.kvanilla.mod.items.dirt.GrassyDirt;
 import org.kakara.kvanilla.mod.items.stone.Stone;
 import org.kakara.kvanilla.mod.regions.EnchantedForestRegion;
 
-@ModInfo(name = "KVanilla", description = "The Vanilla Game for Kakara", authors = "The Kakara Development Team", modType = ModType.REGULAR, version = "1.0-SNAPSHOT")
 public class KVanilla extends GameMod {
     private static KVanilla instance;
 

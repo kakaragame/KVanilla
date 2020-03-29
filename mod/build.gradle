@@ -9,7 +9,12 @@ dependencies {
     compile project(':api')
     compile 'javax.vecmath:vecmath:1.5.2'
 }
+jar {
 
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 shadowJar {
     dependencies {
         exclude('org.kakara:core:*')
