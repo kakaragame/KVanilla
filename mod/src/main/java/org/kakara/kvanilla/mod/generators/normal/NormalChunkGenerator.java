@@ -1,64 +1,53 @@
 package org.kakara.kvanilla.mod.generators.normal;
 
 import org.kakara.core.Kakara;
+import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Name;
+import org.kakara.core.game.Item;
 import org.kakara.core.mod.Mod;
 import org.kakara.core.mod.game.ModChunkGenerator;
 import org.kakara.core.world.ChunkBase;
-import org.kakara.core.world.ChunkGenerator;
-import org.kakara.core.world.region.RegionGrid;
-import org.kakara.kvanilla.api.KConstants;
 import org.kakara.kvanilla.mod.KRegionGrid;
-import org.kakara.kvanilla.mod.KVanilla;
 import org.kakara.kvanilla.mod.generators.NoiseGenerator;
 
 import java.util.Random;
 
+@Name("Default")
+@Id("default")
 public class NormalChunkGenerator extends ModChunkGenerator {
     public NormalChunkGenerator(Mod mod) {
         super(mod);
     }
 
     @Override
-    public String getName() {
-        return "Default";
-    }
+    public ChunkBase generateChunk(int seed, Random r, ChunkBase chunkBase) {
+        NoiseGenerator n1 = new NoiseGenerator(seed, (float) 0.05, 3);
+        NoiseGenerator n2 = new NoiseGenerator(r.nextInt(), (float) 0.1, 3);
 
-    @Override
-    public ChunkFormat getChunkFormat() {
-        return KConstants.CHUNK_FORMAT;
-    }
+        for (int x = chunkBase.getX(); x < 16 + chunkBase.getX(); x++) {
+            for (int y = chunkBase.getY(); y < 16 + chunkBase.getY(); y++) {
+                for (int z = chunkBase.getZ(); z < 16 + chunkBase.getX(); z++) {
+                    int y1 = (int) (n1.GetPerlin(x, y, z) * 5);
+                    int y2 = (int) (n2.GetPerlin(x, y, z) * 5);
+                    int groundHeight = y1 + y2;
 
+                    Item item;
+                    if (y == groundHeight) {
+                        item = Kakara.getItemManager().getItem("KVanilla:grassy_dirt");
+                    } else if (y > groundHeight) {
+                        item = null;
+                    } else if (y > groundHeight - 5) {
+                        item = Kakara.getItemManager().getItem("KVanilla:dirt");
+                    } else {
+                        item = Kakara.getItemManager().getItem("KVanilla:stone");
+                    }
 
-    @Override
-    public ChunkBase generateChunk(int seed, ChunkBase chunkBase) {
-        RegionGrid grid = new KRegionGrid(seed, Kakara.getGameInstance());
-
-        NoiseGenerator n1 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.05, 3);
-        NoiseGenerator n2 = new NoiseGenerator(new Random(seed).nextInt(5453453), (float) 0.1, 3);
-
-        for (int x = chunkBase.getX(); x < 4 + chunkBase.getX(); x++) {
-            for (int z = chunkBase.getZ(); z < 4 + chunkBase.getX(); z++) {
-                int y1 = (int) (n1.GetPerlin(x, 0, z) * 5);
-                int y2 = (int) (n2.GetPerlin(x, 0, z) * 5);
-                int y = y1 + y2;
-
-                int height = getChunkFormat().getWorldHeight() / 2;
-
-                y += height;
-
-                for (int i = 0; i < y - 6; i++) {
-                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("KVanilla:stone")));
+                    chunkBase.setBlock(x, y, z, Kakara.createItemStack(item));
                 }
-
-                for (int i = y - 6; i < y; i++) {
-                    chunkBase.setBlock(x, i, z, Kakara.createItemStack(KVanilla.get("KVanilla:dirt")));
-                }
-
-                chunkBase.setBlock(x, y, z, Kakara.createItemStack(KVanilla.get("KVanilla:grassy_dirt")));
             }
         }
 
-        chunkBase.setRegionGrid(grid);
+        chunkBase.setRegionGrid(new KRegionGrid(seed));
 
         return chunkBase;
     }
