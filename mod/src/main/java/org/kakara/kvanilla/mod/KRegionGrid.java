@@ -1,6 +1,6 @@
 package org.kakara.kvanilla.mod;
 
-import org.kakara.core.KakaraCore;
+import org.kakara.core.Kakara;
 import org.kakara.core.world.Location;
 import org.kakara.core.world.region.Region;
 import org.kakara.core.world.region.RegionGrid;
@@ -9,15 +9,14 @@ import org.kakara.kvanilla.mod.generators.NoiseGenerator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class KRegionGrid implements RegionGrid {
     private Map<Location, Region> overrides = new HashMap<>();
     private final NoiseGenerator n;
-    private final KakaraCore kc;
 
-    public KRegionGrid(int seed, KakaraCore kc) {
-        n = new NoiseGenerator(seed, (float) 0.01, 3);
-        this.kc = kc;
+    public KRegionGrid(int seed) {
+        n = new NoiseGenerator(new Random(seed).nextInt(64), (float) 0.01, 3);
     }
 
     @Override
@@ -25,7 +24,7 @@ public class KRegionGrid implements RegionGrid {
         Location l = new Location(x, 0, z);
         if (overrides.containsKey(l)) return overrides.get(l);
 
-        List<Region> regions = kc.getWorldGenerationManager().getRegions();
+        List<Region> regions = Kakara.getWorldGenerationManager().getRegions();
         double inc = 1D / regions.size();
 
         double num = n.GetPerlin(x, z);
