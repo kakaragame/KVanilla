@@ -7,7 +7,6 @@ plugins {
 }
 dependencies {
     compileOnly 'org.kakara:core:1.0-SNAPSHOT'
-    compile 'javax.vecmath:vecmath:1.5.2'
 }
 
 shadowJar {

@@ -1,10 +1,7 @@
 package org.kakara.kvanilla.mod;
 
-import org.kakara.core.Kakara;
-import org.kakara.core.game.Item;
 import org.kakara.core.game.ItemManager;
-import org.kakara.core.mod.ModType;
-import org.kakara.core.mod.annotations.*;
+import org.kakara.core.mod.annotations.LoadingStage;
 import org.kakara.core.mod.game.GameMod;
 import org.kakara.core.world.WorldGenerationManager;
 import org.kakara.kvanilla.mod.generators.normal.NormalChunkGenerator;
@@ -16,11 +13,6 @@ import org.kakara.kvanilla.mod.items.stone.Stone;
 import org.kakara.kvanilla.mod.regions.EnchantedForestRegion;
 
 public class KVanilla extends GameMod {
-    private static KVanilla instance;
-
-    public static Item get(String name) {
-        return Kakara.getItemManager().getItem(name);
-    }
 
     @LoadingStage
     public void loadItems(ItemManager itemManager) {
@@ -29,10 +21,6 @@ public class KVanilla extends GameMod {
         itemManager.registerItem(new FineDirt(this), this);
         itemManager.registerItem(new GrassyDirt(this), this);
         itemManager.registerItem(new Stone(this), this);
-    }
-
-    public static KVanilla getInstance() {
-        return instance;
     }
 
     @LoadingStage

@@ -16,7 +16,7 @@ public class KRegionGrid implements RegionGrid {
     private final NoiseGenerator n;
 
     public KRegionGrid(int seed) {
-        n = new NoiseGenerator(new Random(seed).nextInt(64), (float) 0.01, 3);
+        n = new NoiseGenerator(new Random(seed).nextInt(64), (float) 0.01);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class KRegionGrid implements RegionGrid {
         List<Region> regions = Kakara.getWorldGenerationManager().getRegions();
         double inc = 1D / regions.size();
 
-        double num = n.GetPerlin(x, z);
+        double num = n.getNoiseValue(x, 0, z);
 
         Region r = null;
         int index = 0;

@@ -21,14 +21,14 @@ public class NormalChunkGenerator extends ModChunkGenerator {
 
     @Override
     public ChunkBase generateChunk(int seed, Random r, ChunkBase chunkBase) {
-        NoiseGenerator n1 = new NoiseGenerator(seed, (float) 0.05, 3);
-        NoiseGenerator n2 = new NoiseGenerator(r.nextInt(), (float) 0.1, 3);
+        NoiseGenerator n1 = new NoiseGenerator(seed, 0.05F);
+        NoiseGenerator n2 = new NoiseGenerator(r.nextInt(), 0.1F);
 
         for (int x = chunkBase.getX(); x < 16 + chunkBase.getX(); x++) {
             for (int y = chunkBase.getY(); y < 16 + chunkBase.getY(); y++) {
-                for (int z = chunkBase.getZ(); z < 16 + chunkBase.getX(); z++) {
-                    int y1 = (int) (n1.GetPerlin(x, y, z) * 5);
-                    int y2 = (int) (n2.GetPerlin(x, y, z) * 5);
+                for (int z = chunkBase.getZ(); z < 16 + chunkBase.getZ(); z++) {
+                    int y1 = (int) (n1.getNoiseValue(x, 50, z) * 5);
+                    int y2 = (int) (n2.getNoiseValue(x, 50, z) * 5);
                     int groundHeight = y1 + y2;
 
                     Item item;
