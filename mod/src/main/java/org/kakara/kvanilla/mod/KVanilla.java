@@ -16,11 +16,11 @@ public class KVanilla extends GameMod {
 
     @LoadingStage
     public void loadItems(ItemManager itemManager) {
-        itemManager.registerItem(new CoarseDirt(this), this);
-        itemManager.registerItem(new Dirt(this), this);
-        itemManager.registerItem(new FineDirt(this), this);
-        itemManager.registerItem(new GrassyDirt(this), this);
-        itemManager.registerItem(new Stone(this), this);
+        itemManager.registerItem(new CoarseDirt(this));
+        itemManager.registerItem(new Dirt(this));
+        itemManager.registerItem(new FineDirt(this));
+        itemManager.registerItem(new GrassyDirt(this));
+        itemManager.registerItem(new Stone(this));
     }
 
     @LoadingStage
