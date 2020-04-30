@@ -97,8 +97,7 @@ public class NoiseGenerator {
                 i2 = 0;
                 j2 = 1;
                 k2 = 1;
-            } else // x0 >= z0
-            {
+            } else {
                 i1 = 0;
                 j1 = 1;
                 k1 = 0;
