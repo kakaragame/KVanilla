@@ -29,8 +29,8 @@
 package org.kakara.kvanilla.mod.generators;
 
 public class NoiseGenerator {
-    private int seed;
-    private float frequency;
+    private final int seed;
+    private final float frequency;
 
     public NoiseGenerator(int seed, float frequency) {
         this.seed = seed;
