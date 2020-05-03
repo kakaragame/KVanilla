@@ -14,3 +14,13 @@ shadowJar {
         exclude('org.kakara:core:*')
     }
 }
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://repo.maven.apache.org/maven2'
+    }
+
+    maven {
+        url = 'https://repo.kingtux.me/storages/maven/kakara'
+    }
+}
