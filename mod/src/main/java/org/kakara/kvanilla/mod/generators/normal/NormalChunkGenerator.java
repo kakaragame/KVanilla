@@ -26,9 +26,23 @@ public class NormalChunkGenerator extends ModChunkGenerator {
     @Override
     public ChunkBase generateChunk(int seed, Random r, ChunkBase chunkBase) {
         NoiseGenerator n1 = new NoiseGenerator(seed, 0.05F);
-        ItemStack grassDirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod.getName(), "grassy_dirt")).get());
-        ItemStack dirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod.getName(), "dirt")).get());
-        ItemStack stone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod.getName(), "stone")).get());
+        if (Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).isEmpty()) {
+            System.out.println(":Grassy:Emty");
+
+        }
+        if (Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).isEmpty()) {
+            System.out.println(":Dirt:Emty");
+
+        }
+        if (Kakara.getItemManager().getItem(new NameKey(mod, "stone")).isEmpty()) {
+            System.out.println("Stone:Emtpy");
+
+        }
+
+
+        ItemStack grassDirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).get());
+        ItemStack dirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).get());
+        ItemStack stone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "stone")).get());
 
         for (int x = chunkBase.getX(); x < 16 + chunkBase.getX(); x++) {
             for (int z = chunkBase.getZ(); z < 16 + chunkBase.getZ(); z++) {
