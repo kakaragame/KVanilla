@@ -1,31 +1,22 @@
 package org.kakara.kvanilla.mod.regions;
 
+import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Name;
 import org.kakara.core.game.Entity;
 import org.kakara.core.mod.Mod;
 import org.kakara.core.mod.game.ModRegion;
-import org.kakara.core.world.Structure;
-import org.kakara.core.world.region.BlockAbove;
-import org.kakara.core.world.region.GenerationLayer;
-import org.kakara.core.world.region.Region;
+import org.kakara.core.world.ChunkLocation;
+import org.kakara.core.world.GameBlock;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+@Name("Enchanted Forest")
+@Id("enchanted_forest")
 public class EnchantedForestRegion extends ModRegion {
     public EnchantedForestRegion(Mod mod) {
         super(mod);
-    }
-
-    @Override
-    public String getName() {
-        return "Enchanted Forest";
-    }
-
-    @Override
-    public Structure[] getStructures() {
-        return new Structure[0];
-    }
-
-    @Override
-    public GenerationLayer[] getLayers() {
-        return new GenerationLayer[0];
     }
 
     @Override
@@ -34,27 +25,10 @@ public class EnchantedForestRegion extends ModRegion {
     }
 
     @Override
-    public BlockAbove[] getAboveBlocks() {
-        return new BlockAbove[0];
-    }
+    public List<GameBlock> generate(ChunkLocation chunkLocation, int x, int groundHeight, int z, long seed, Random random) {
+        List<GameBlock> gameBlocks = new ArrayList<>();
 
-    @Override
-    public int getPrecipitationChance() {
-        return 0;
-    }
 
-    @Override
-    public int getHeatLevel() {
-        return 0;
-    }
-
-    @Override
-    public int getMinimumY() {
-        return 0;
-    }
-
-    @Override
-    public int getMaximumY() {
-        return 0;
+        return null;
     }
 }

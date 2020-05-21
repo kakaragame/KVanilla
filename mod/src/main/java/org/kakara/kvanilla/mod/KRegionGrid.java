@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class KRegionGrid implements RegionGrid {
-    private Map<Location, Region> overrides = new HashMap<>();
+    private final Map<Location, Region> overrides = new HashMap<>();
     private final NoiseGenerator n;
 
     public KRegionGrid(int seed) {

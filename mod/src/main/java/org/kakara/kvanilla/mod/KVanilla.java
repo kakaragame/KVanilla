@@ -4,7 +4,7 @@ import org.kakara.core.game.ItemManager;
 import org.kakara.core.mod.annotations.LoadingStage;
 import org.kakara.core.mod.game.GameMod;
 import org.kakara.core.world.WorldGenerationManager;
-import org.kakara.kvanilla.mod.generators.normal.NormalChunkGenerator;
+import org.kakara.kvanilla.mod.generators.normal.NormalWorldGenerator;
 import org.kakara.kvanilla.mod.items.dirt.CoarseDirt;
 import org.kakara.kvanilla.mod.items.dirt.Dirt;
 import org.kakara.kvanilla.mod.items.dirt.FineDirt;
@@ -26,6 +26,6 @@ public class KVanilla extends GameMod {
     @LoadingStage
     public void loadWorldGen(WorldGenerationManager worldGenerationManager) {
         worldGenerationManager.registerRegion(new EnchantedForestRegion(this));
-        worldGenerationManager.registerChunkGenerator(new NormalChunkGenerator(this));
+        worldGenerationManager.registerChunkGenerator(new NormalWorldGenerator(this));
     }
 }
