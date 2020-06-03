@@ -1,12 +1,12 @@
 package org.kakara.kvanilla;
 
-import org.kakara.core.annotations.GameType;
 import org.kakara.core.game.ItemManager;
+import org.kakara.core.game.entity.EntityManager;
 import org.kakara.core.mod.annotations.LoadingStage;
 import org.kakara.core.mod.game.GameMod;
 import org.kakara.core.world.WorldGenerationManager;
 import org.kakara.kvanilla.generators.NormalWorldGenerator;
-import org.kakara.kvanilla.items.blocks.GrassyDirt;
+import org.kakara.kvanilla.items.blocks.dirt.GrassyDirt;
 
 public class KVanillaMain extends GameMod {
     @LoadingStage
@@ -17,5 +17,10 @@ public class KVanillaMain extends GameMod {
     @LoadingStage
     public void worldGenLoad(WorldGenerationManager worldGenerationManager) {
         worldGenerationManager.registerChunkGenerator(new NormalWorldGenerator(this));
+    }
+
+    @LoadingStage
+    public void entityLoad(EntityManager entityManager) {
+        //TODO register Entitys
     }
 }

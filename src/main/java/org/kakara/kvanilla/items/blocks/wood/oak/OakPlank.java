@@ -1,4 +1,4 @@
-package org.kakara.kvanilla.items.blocks;
+package org.kakara.kvanilla.items.blocks.wood.oak;
 
 import org.kakara.core.annotations.Id;
 import org.kakara.core.annotations.Name;
@@ -7,14 +7,13 @@ import org.kakara.core.events.entity.StepOnEvent;
 import org.kakara.core.events.player.PlaceEvent;
 import org.kakara.core.events.player.click.ClickEvent;
 import org.kakara.core.mod.Mod;
-import org.kakara.kvanilla.bases.DirtBase;
+import org.kakara.kvanilla.items.blocks.wood.Plank;
 
-@Name("Grassy Dirt")
-@Texture("grassy_dirt.png")
-@Id("grassy_dirt")
-
-public class GrassyDirt extends DirtBase {
-    public GrassyDirt(Mod mod) {
+@Name("Oak Planks")
+@Texture("wood/oak/oak_planks.png")
+@Id("oak")
+public class OakPlank extends Plank {
+    public OakPlank(Mod mod) {
         super(mod);
     }
 
