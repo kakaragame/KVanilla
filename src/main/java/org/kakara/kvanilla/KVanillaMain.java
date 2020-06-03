@@ -5,6 +5,7 @@ import org.kakara.core.game.entity.EntityManager;
 import org.kakara.core.mod.annotations.LoadingStage;
 import org.kakara.core.mod.game.GameMod;
 import org.kakara.core.world.WorldGenerationManager;
+import org.kakara.kvanilla.entitys.passive.natural.Cow;
 import org.kakara.kvanilla.generators.NormalWorldGenerator;
 import org.kakara.kvanilla.items.blocks.dirt.GrassyDirt;
 
@@ -21,6 +22,6 @@ public class KVanillaMain extends GameMod {
 
     @LoadingStage
     public void entityLoad(EntityManager entityManager) {
-        //TODO register Entitys
+        entityManager.registerEntity(new Cow(this));
     }
 }

@@ -1,5 +1,6 @@
 package org.kakara.kvanilla.regions.natural;
 
+import org.kakara.core.Kakara;
 import org.kakara.core.game.Entity;
 import org.kakara.core.mod.Mod;
 import org.kakara.core.mod.game.ModRegion;
@@ -16,7 +17,7 @@ public class PlainsRegion extends ModRegion {
 
     @Override
     public Entity[] getEntitySpawns() {
-        return new Entity[0];
+        return new Entity[]{Kakara.getEntityManager().getEntity("kvanilla:cow").orElseThrow(RuntimeException::new)};
     }
 
     @Override

@@ -1,30 +1,23 @@
 package org.kakara.kvanilla.entitys.passive.natural;
 
-import org.kakara.core.NameKey;
-import org.kakara.core.game.Entity;
+
+import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Model;
+import org.kakara.core.annotations.Name;
+import org.kakara.core.annotations.Texture;
 import org.kakara.core.game.entity.EntitySpawningPattern;
 import org.kakara.core.game.entity.PathFinder;
+import org.kakara.core.mod.Mod;
+import org.kakara.core.mod.game.ModEntity;
 
-//TODO swap to ModEntity
-public class Cow implements Entity {
-    @Override
-    public String getName() {
-        return null;
-    }
+@Name("Cow")
+@Texture("textures/entities/passive/natural/cow.png")
+@Id("cow")
+@Model("models/entities/passive/natural/cow.png")
+public class Cow extends ModEntity {
 
-    @Override
-    public String getModel() {
-        return null;
-    }
-
-    @Override
-    public String getId() {
-        return null;
-    }
-
-    @Override
-    public NameKey getNameKey() {
-        return null;
+    public Cow(Mod mod) {
+        super(mod);
     }
 
     @Override
