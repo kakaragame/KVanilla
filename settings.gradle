@@ -1,3 +1,1 @@
 rootProject.name = "KVanilla"
-include("api")
-include("mod")

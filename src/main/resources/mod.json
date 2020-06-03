@@ -1,5 +1,5 @@
 {
-  "main-class": "org.kakara.kvanilla.mod.KVanilla",
+  "main-class": "org.kakara.kvanilla.KVanillaMain",
   "name": "KVanilla",
   "version": "1.0-SNAPSHOT"
 }
