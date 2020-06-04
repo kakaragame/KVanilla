@@ -10,7 +10,7 @@ import org.kakara.core.mod.Mod;
 import org.kakara.kvanilla.items.blocks.wood.Plank;
 
 @Name("Oak Planks")
-@Texture("wood/oak/oak_planks.png")
+@Texture("textures/items/blocks/wood/oak/oak_planks.png")
 @Id("oak")
 public class OakPlank extends Plank {
     public OakPlank(Mod mod) {

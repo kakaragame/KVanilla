@@ -13,7 +13,7 @@ import org.kakara.core.mod.game.ModEntity;
 @Name("Cow")
 @Texture("textures/entities/passive/natural/cow.png")
 @Id("cow")
-@Model("models/entities/passive/natural/cow.png")
+@Model("models/entities/passive/natural/cow.obj")
 public class Cow extends ModEntity {
 
     public Cow(Mod mod) {
