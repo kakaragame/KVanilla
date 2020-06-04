@@ -3,6 +3,8 @@
  */
 
 plugins {
+    id 'java'
+    id 'maven'
     id "com.github.johnrengelman.shadow" version "5.2.0"
 }
 
@@ -11,7 +13,10 @@ version = '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
-
+configurations {
+    deployerJars
+    shadow
+}
 repositories {
     mavenLocal()
     maven {
@@ -45,3 +50,28 @@ shadowJar {
     }
 }
 
+uploadArchives {
+
+
+    repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "https://repo.kingtux.me/storages/maven/kakara") {
+            authentication(userName: System.getProperty('credentials.username'),
+                    password: System.getProperty('credentials.password'))
+        }
+
+    }
+}
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier.set('sources')
+    from sourceSets.main.allSource
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set('javadoc')
+    from javadoc.destinationDir
+}
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+    archives shadowJar
+}
