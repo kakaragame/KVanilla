@@ -9,11 +9,17 @@ public class PerlinNoise {
     private double persistence, frequency, amplitude, octaves;
     private int randomSeed;
 
-    public PerlinNoise() {
-
-    }
+    public PerlinNoise() {}
 
     public PerlinNoise(double persistence, double frequency, double amplitude, double octaves, int randomSeed) {
+        this.persistence = persistence;
+        this.frequency = frequency;
+        this.amplitude = amplitude;
+        this.octaves = octaves;
+        this.randomSeed = 2 + randomSeed * randomSeed;
+    }
+
+    public void set(double persistence, double frequency, double amplitude, double octaves, int randomSeed){
         this.persistence = persistence;
         this.frequency = frequency;
         this.amplitude = amplitude;

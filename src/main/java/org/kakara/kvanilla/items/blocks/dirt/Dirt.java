@@ -10,7 +10,7 @@ import org.kakara.core.mod.Mod;
 import org.kakara.kvanilla.bases.DirtBase;
 
 @Name("Dirt")
-@Texture("textures/items/blocks/dirt/grassy_dirt.png")
+@Texture("textures/items/blocks/dirt/dirt.png")
 @Id("dirt")
 
 public class Dirt extends DirtBase {

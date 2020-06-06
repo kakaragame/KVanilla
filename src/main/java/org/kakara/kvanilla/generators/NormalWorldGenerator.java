@@ -21,17 +21,19 @@ public class NormalWorldGenerator extends ModWorldGenerator {
     ItemStack grassDirt;
     ItemStack dirt;
     ItemStack stone;
+    PerlinNoise noise;
 
     public NormalWorldGenerator(Mod mod) {
         super(mod);
         grassDirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).get());
         dirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).get());
         stone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "stone")).get());
+        noise = new PerlinNoise();
     }
 
     @Override
     public ChunkBase generateChunk(int seed, Random random, World world, int cx, int cy, int cz) {
-        PerlinNoise noise = new PerlinNoise(1, 1.4, 3, 2, seed);
+        noise.set(0.2, 0.5, 0.3, 0.5, seed);
         RegionGrid grid = new KRegionGrid();
         ChunkBase chunkBase = new ChunkBase(world, cx, cy, cz, grid);
         for(int x = chunkBase.getX(); x < cx + 16; x++){
