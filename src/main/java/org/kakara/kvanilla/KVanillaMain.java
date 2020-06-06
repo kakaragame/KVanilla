@@ -1,9 +1,12 @@
 package org.kakara.kvanilla;
 
+import org.kakara.core.Kakara;
 import org.kakara.core.game.ItemManager;
 import org.kakara.core.game.entity.EntityManager;
 import org.kakara.core.mod.annotations.LoadingStage;
 import org.kakara.core.mod.game.GameMod;
+import org.kakara.core.resources.ResourceManager;
+import org.kakara.core.resources.TextureResolution;
 import org.kakara.core.world.WorldGenerationManager;
 import org.kakara.kvanilla.entitys.passive.natural.Cow;
 import org.kakara.kvanilla.generators.NormalWorldGenerator;
