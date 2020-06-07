@@ -1,6 +1,6 @@
 package org.kakara.kvanilla.items.blocks.dirt;
 
-import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.annotations.Texture;
 import org.kakara.core.events.entity.StepOnEvent;
@@ -11,7 +11,7 @@ import org.kakara.kvanilla.bases.DirtBase;
 
 @Name("Grassy Dirt")
 @Texture("textures/items/blocks/dirt/grassy_dirt.png")
-@Id("grassy_dirt")
+@Key("grassy_dirt")
 
 public class GrassyDirt extends DirtBase {
     public GrassyDirt(Mod mod) {

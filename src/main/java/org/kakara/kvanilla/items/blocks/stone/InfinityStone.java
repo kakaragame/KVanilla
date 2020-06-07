@@ -1,7 +1,7 @@
 package org.kakara.kvanilla.items.blocks.stone;
 
 import org.kakara.core.annotations.Hardness;
-import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.annotations.Texture;
 import org.kakara.core.events.entity.StepOnEvent;
@@ -17,7 +17,7 @@ import org.kakara.kvanilla.bases.StoneBase;
  */
 @Name("Infinity Stone")
 @Texture("textures/items/blocks/stone/infinity_stone.png")
-@Id("infinity_stone")
+@Key("infinity_stone")
 @Hardness(10)
 public class InfinityStone extends StoneBase {
     public InfinityStone(Mod mod) {

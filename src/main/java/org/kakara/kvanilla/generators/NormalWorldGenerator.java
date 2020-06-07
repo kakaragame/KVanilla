@@ -2,7 +2,7 @@ package org.kakara.kvanilla.generators;
 
 import org.kakara.core.Kakara;
 import org.kakara.core.NameKey;
-import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.game.ItemStack;
 import org.kakara.core.mod.Mod;
@@ -16,7 +16,7 @@ import org.kakara.kvanilla.regions.KRegionGrid;
 import java.util.Random;
 //TODO change this back to normal
 @Name("Default")
-@Id("default")
+@Key("default")
 public class NormalWorldGenerator extends ModWorldGenerator {
     ItemStack grassDirt;
     ItemStack dirt;

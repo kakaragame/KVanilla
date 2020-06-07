@@ -1,6 +1,6 @@
 package org.kakara.kvanilla.items.blocks.stone;
 
-import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.annotations.Texture;
 import org.kakara.core.events.entity.StepOnEvent;
@@ -11,7 +11,7 @@ import org.kakara.kvanilla.bases.StoneBase;
 
 @Name("Stone")
 @Texture("textures/items/blocks/stone/stone.png")
-@Id("stone")
+@Key("stone")
 public class Stone extends StoneBase {
     public Stone(Mod mod) {
         super(mod);

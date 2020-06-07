@@ -1,7 +1,7 @@
 package org.kakara.kvanilla.entitys.passive.natural;
 
 
-import org.kakara.core.annotations.Id;
+import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Model;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.annotations.Texture;
@@ -12,7 +12,7 @@ import org.kakara.core.mod.game.ModEntity;
 
 @Name("Cow")
 @Texture("textures/entities/passive/natural/cow.png")
-@Id("cow")
+@Key("cow")
 @Model("models/entities/passive/natural/cow.obj")
 public class Cow extends ModEntity {
 
