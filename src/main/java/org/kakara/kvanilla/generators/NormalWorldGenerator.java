@@ -18,9 +18,7 @@ import java.util.Random;
 @Name("Default")
 @Key("default")
 public class NormalWorldGenerator extends ModWorldGenerator {
-    ItemStack grassDirt;
-    ItemStack dirt;
-    ItemStack stone;
+    ItemStack grassDirt, dirt, stone, infinityStone;
     PerlinNoise noise;
 
     public NormalWorldGenerator(Mod mod) {
@@ -28,6 +26,7 @@ public class NormalWorldGenerator extends ModWorldGenerator {
         grassDirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).get());
         dirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).get());
         stone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "stone")).get());
+        infinityStone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "infinity_stone")).get());
         noise = new PerlinNoise();
     }
 
@@ -39,9 +38,14 @@ public class NormalWorldGenerator extends ModWorldGenerator {
         for(int x = chunkBase.getX(); x < cx + 16; x++){
             for(int z = chunkBase.getZ(); z < cz + 16; z++){
                 // TODO add in regions.
-                int groundHeight = (int) (noise.getHeight(x, z) * 40);
+                int groundHeight = (int) (noise.getHeight(x, z) * 50) + 50;
+                System.out.println(chunkBase.getY());
                 for(int y = chunkBase.getY(); y < 16 + cy; y++){
                     if(y > groundHeight){
+                        continue;
+                    }else if(y == 0){
+                        chunkBase.setBlock(x, y, z, infinityStone);
+                    }else if(y < 0){
                         continue;
                     }else if( y == groundHeight){
                         chunkBase.setBlock(x, y, z, grassDirt);
