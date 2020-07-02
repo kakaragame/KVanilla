@@ -39,7 +39,6 @@ public class NormalWorldGenerator extends ModWorldGenerator {
             for(int z = chunkBase.getZ(); z < cz + 16; z++){
                 // TODO add in regions.
                 int groundHeight = (int) (noise.getHeight(x, z) * 50) + 50;
-                System.out.println(chunkBase.getY());
                 for(int y = chunkBase.getY(); y < 16 + cy; y++){
                     if(y > groundHeight){
                         continue;
