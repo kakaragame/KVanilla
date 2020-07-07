@@ -64,8 +64,8 @@ public class PerlinNoise {
     }
 
     private double getValue(double x, double y) {
-        int Xint = (int) x;
-        int Yint = (int) y;
+        int Xint = (int) Math.floor(x);
+        int Yint = (int) Math.floor(y);
         double Xfrac = x - Xint;
         double Yfrac = y - Yint;
 
