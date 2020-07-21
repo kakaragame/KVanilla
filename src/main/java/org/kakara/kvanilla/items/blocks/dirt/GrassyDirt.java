@@ -1,5 +1,6 @@
 package org.kakara.kvanilla.items.blocks.dirt;
 
+import org.kakara.core.annotations.Hardness;
 import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
 import org.kakara.core.annotations.Texture;
@@ -12,7 +13,7 @@ import org.kakara.kvanilla.bases.DirtBase;
 @Name("Grassy Dirt")
 @Texture("textures/items/blocks/dirt/grassy_dirt.png")
 @Key("grassy_dirt")
-
+@Hardness(1)
 public class GrassyDirt extends DirtBase {
     public GrassyDirt(Mod mod) {
         super(mod);
