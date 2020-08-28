@@ -4,7 +4,7 @@ import org.kakara.core.Kakara;
 import org.kakara.core.NameKey;
 import org.kakara.core.annotations.Key;
 import org.kakara.core.annotations.Name;
-import org.kakara.core.game.ItemStack;
+import org.kakara.core.game.Item;
 import org.kakara.core.mod.Mod;
 import org.kakara.core.mod.game.ModWorldGenerator;
 import org.kakara.core.world.ChunkBase;
@@ -18,15 +18,15 @@ import java.util.Random;
 @Name("Default")
 @Key("default")
 public class NormalWorldGenerator extends ModWorldGenerator {
-    ItemStack grassDirt, dirt, stone, infinityStone;
+    Item grassDirt, dirt, stone, infinityStone;
     PerlinNoise noise;
 
     public NormalWorldGenerator(Mod mod) {
         super(mod);
-        grassDirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).get());
-        dirt = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).get());
-        stone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "stone")).get());
-        infinityStone = Kakara.createItemStack(Kakara.getItemManager().getItem(new NameKey(mod, "infinity_stone")).get());
+        grassDirt = Kakara.getItemManager().getItem(new NameKey(mod, "grassy_dirt")).get();
+        dirt = Kakara.getItemManager().getItem(new NameKey(mod, "dirt")).get();
+        stone = Kakara.getItemManager().getItem(new NameKey(mod, "stone")).get();
+        infinityStone = Kakara.getItemManager().getItem(new NameKey(mod, "infinity_stone")).get();
         noise = new PerlinNoise();
     }
 
@@ -43,15 +43,15 @@ public class NormalWorldGenerator extends ModWorldGenerator {
                     if(y > groundHeight){
                         continue;
                     }else if(y == 0){
-                        chunkBase.setBlock(x, y, z, infinityStone);
+                        chunkBase.setBlock(x, y, z, Kakara.createItemStack(infinityStone));
                     }else if(y < 0){
                         continue;
                     }else if( y == groundHeight){
-                        chunkBase.setBlock(x, y, z, grassDirt);
+                        chunkBase.setBlock(x, y, z, Kakara.createItemStack(grassDirt));
                     }else if(y > groundHeight - 5){
-                        chunkBase.setBlock(x, y, z, dirt);
+                        chunkBase.setBlock(x, y, z, Kakara.createItemStack(dirt));
                     }else{
-                        chunkBase.setBlock(x, y, z, stone);
+                        chunkBase.setBlock(x, y, z, Kakara.createItemStack(stone));
                     }
                 }
             }
