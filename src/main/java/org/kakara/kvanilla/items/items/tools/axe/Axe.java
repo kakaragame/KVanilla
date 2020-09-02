@@ -1,6 +1,5 @@
 package org.kakara.kvanilla.items.items.tools.axe;
 
-import org.kakara.core.events.player.click.ClickEvent;
 import org.kakara.core.game.Tool;
 import org.kakara.core.mod.Mod;
 import org.kakara.core.mod.game.ModItem;

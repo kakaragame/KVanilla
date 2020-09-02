@@ -14,6 +14,7 @@ import org.kakara.kvanilla.generators.noise.PerlinNoise;
 import org.kakara.kvanilla.regions.KRegionGrid;
 
 import java.util.Random;
+
 //TODO change this back to normal
 @Name("Default")
 @Key("default")
@@ -35,22 +36,22 @@ public class NormalWorldGenerator extends ModWorldGenerator {
         noise.set(0.2, 0.5, 0.3, 0.5, seed);
         RegionGrid grid = new KRegionGrid();
         ChunkBase chunkBase = new ChunkBase(world, cx, cy, cz, grid);
-        for(int x = chunkBase.getX(); x < cx + 16; x++){
-            for(int z = chunkBase.getZ(); z < cz + 16; z++){
+        for (int x = chunkBase.getX(); x < cx + 16; x++) {
+            for (int z = chunkBase.getZ(); z < cz + 16; z++) {
                 // TODO add in regions.
                 int groundHeight = (int) (noise.getHeight(x, z) * 50) + 50;
-                for(int y = chunkBase.getY(); y < 16 + cy; y++){
-                    if(y > groundHeight){
+                for (int y = chunkBase.getY(); y < 16 + cy; y++) {
+                    if (y > groundHeight) {
                         continue;
-                    }else if(y == 0){
+                    } else if (y == 0) {
                         chunkBase.setBlock(x, y, z, Kakara.createItemStack(infinityStone));
-                    }else if(y < 0){
+                    } else if (y < 0) {
                         continue;
-                    }else if( y == groundHeight){
+                    } else if (y == groundHeight) {
                         chunkBase.setBlock(x, y, z, Kakara.createItemStack(grassDirt));
-                    }else if(y > groundHeight - 5){
+                    } else if (y > groundHeight - 5) {
                         chunkBase.setBlock(x, y, z, Kakara.createItemStack(dirt));
-                    }else{
+                    } else {
                         chunkBase.setBlock(x, y, z, Kakara.createItemStack(stone));
                     }
                 }
