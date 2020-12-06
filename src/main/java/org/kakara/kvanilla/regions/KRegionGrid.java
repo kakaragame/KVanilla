@@ -1,7 +1,8 @@
 package org.kakara.kvanilla.regions;
 
-import org.kakara.core.world.region.Region;
-import org.kakara.core.world.region.RegionGrid;
+
+import org.kakara.core.common.world.region.Region;
+import org.kakara.core.common.world.region.RegionGrid;
 
 public class KRegionGrid implements RegionGrid {
     @Override
