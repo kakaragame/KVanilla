@@ -5,6 +5,7 @@ import org.kakara.core.common.annotations.Key;
 import org.kakara.core.common.annotations.Name;
 import org.kakara.core.common.annotations.Texture;
 import org.kakara.core.common.mod.Mod;
+import org.kakara.core.common.mod.game.GameMod;
 import org.kakara.kvanilla.bases.StoneBase;
 
 /***
@@ -17,7 +18,7 @@ import org.kakara.kvanilla.bases.StoneBase;
 @Key("infinity_stone")
 @Hardness(10)
 public class InfinityStone extends StoneBase {
-    public InfinityStone(Mod mod) {
+    public InfinityStone(GameMod mod) {
         super(mod);
     }
 

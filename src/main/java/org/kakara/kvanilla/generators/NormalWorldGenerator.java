@@ -28,7 +28,7 @@ public class NormalWorldGenerator extends ModWorldGenerator {
     public NormalWorldGenerator(KVanillaMain mod) {
         super(mod);
 
-        KValidate.checkServer();
+        KValidate.gameInstanceCheckServer();
         serverGameInstance = (ServerGameInstance) Kakara.getGameInstance();
         grassDirt = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("grassy_dirt"));
         dirt = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("dirt"));
@@ -51,6 +51,7 @@ public class NormalWorldGenerator extends ModWorldGenerator {
                     if (y > groundHeight) {
                         continue;
                     } else if (y == 0) {
+
                         chunkBase.setBlock(x, y, z, serverGameInstance.createItemStack(infinityStone));
                     } else if (y < 0) {
                         continue;

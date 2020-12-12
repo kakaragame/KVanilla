@@ -5,6 +5,7 @@ import org.kakara.core.common.annotations.Key;
 import org.kakara.core.common.annotations.Name;
 import org.kakara.core.common.annotations.Texture;
 import org.kakara.core.common.mod.Mod;
+import org.kakara.core.common.mod.game.GameMod;
 import org.kakara.kvanilla.bases.DirtBase;
 
 @Name("Grassy Dirt")
@@ -12,7 +13,7 @@ import org.kakara.kvanilla.bases.DirtBase;
 @Key("grassy_dirt")
 @Hardness(1)
 public class GrassyDirt extends DirtBase {
-    public GrassyDirt(Mod mod) {
+    public GrassyDirt(GameMod mod) {
         super(mod);
     }
 
