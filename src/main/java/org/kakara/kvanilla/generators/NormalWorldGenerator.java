@@ -30,10 +30,10 @@ public class NormalWorldGenerator extends ModWorldGenerator {
 
         KValidate.gameInstanceCheckServer();
         serverGameInstance = (ServerGameInstance) Kakara.getGameInstance();
-        grassDirt = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("grassy_dirt"));
-        dirt = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("dirt"));
-        stone = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("stone"));
-        infinityStone = Kakara.getGameInstance().getItemManager().getItem(mod.createControllerKey("infinity_stone"));
+        grassDirt = Kakara.getGameInstance().getItemRegistry().getItem(mod.createControllerKey("grassy_dirt"));
+        dirt = Kakara.getGameInstance().getItemRegistry().getItem(mod.createControllerKey("dirt"));
+        stone = Kakara.getGameInstance().getItemRegistry().getItem(mod.createControllerKey("stone"));
+        infinityStone = Kakara.getGameInstance().getItemRegistry().getItem(mod.createControllerKey("infinity_stone"));
         noise = new PerlinNoise();
     }
 
