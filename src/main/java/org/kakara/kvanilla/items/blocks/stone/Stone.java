@@ -17,4 +17,13 @@ public class Stone extends StoneBase {
     }
 
 
+    @Override
+    public float getResistance() {
+        return 0;
+    }
+
+    @Override
+    public int getHarvestLevel() {
+        return 0;
+    }
 }
