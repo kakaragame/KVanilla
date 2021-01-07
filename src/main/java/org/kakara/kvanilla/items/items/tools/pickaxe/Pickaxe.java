@@ -13,12 +13,6 @@ public abstract class Pickaxe extends ModItem implements Tool {
         super(mod);
     }
 
-
-    @Override
-    public Class<?>[] targetedBlocks() {
-        return new Class[]{StoneBase.class};
-    }
-
     @Override
     public String getModel() {
         return "models/items/tools/pickaxe.obj";

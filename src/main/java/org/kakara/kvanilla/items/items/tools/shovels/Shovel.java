@@ -12,9 +12,4 @@ public abstract class Shovel extends ModItem implements Tool {
     }
 
 
-    @Override
-    public Class<?>[] targetedBlocks() {
-        return new Class[]{DirtBase.class};
-    }
-
 }

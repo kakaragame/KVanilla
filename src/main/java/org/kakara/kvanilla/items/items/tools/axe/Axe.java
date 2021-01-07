@@ -12,10 +12,4 @@ public abstract class Axe extends ModItem implements Tool {
     public Axe(GameMod mod) {
         super(mod);
     }
-
-    @Override
-    public Class<?>[] targetedBlocks() {
-        return new Class[]{WoodBase.class};
-    }
-
 }

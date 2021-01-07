@@ -18,4 +18,13 @@ public class Dirt extends DirtBase {
         super(mod);
     }
 
+    @Override
+    public float getResistance() {
+        return 0;
+    }
+
+    @Override
+    public int getHarvestLevel() {
+        return 0;
+    }
 }
