@@ -32,8 +32,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.kakara.core:common:1.0-RW-SNAPSHOT'
-    compileOnly 'org.kakara.core:server:1.0-RW-SNAPSHOT'
+    compileOnly 'org.kakara.core:common:1.0-SNAPSHOT'
+    compileOnly 'org.kakara.core:server:1.0-SNAPSHOT'
     compile 'org.spongepowered:noise:2.0.0-SNAPSHOT'
 }
 
