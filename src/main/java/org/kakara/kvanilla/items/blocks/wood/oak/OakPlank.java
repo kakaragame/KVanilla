@@ -1,34 +1,28 @@
 package org.kakara.kvanilla.items.blocks.wood.oak;
 
-import org.kakara.core.annotations.Key;
-import org.kakara.core.annotations.Name;
-import org.kakara.core.annotations.Texture;
-import org.kakara.core.events.entity.StepOnEvent;
-import org.kakara.core.events.player.PlaceEvent;
-import org.kakara.core.events.player.click.ClickEvent;
-import org.kakara.core.mod.Mod;
+import org.kakara.core.common.annotations.Hardness;
+import org.kakara.core.common.annotations.Key;
+import org.kakara.core.common.annotations.Name;
+import org.kakara.core.common.annotations.Texture;
+import org.kakara.core.common.mod.Mod;
+import org.kakara.core.common.mod.game.GameMod;
 import org.kakara.kvanilla.items.blocks.wood.Plank;
 
 @Name("Oak Planks")
 @Texture("textures/items/blocks/wood/oak/oak_planks.png")
 @Key("oak")
 public class OakPlank extends Plank {
-    public OakPlank(Mod mod) {
+    public OakPlank(GameMod mod) {
         super(mod);
     }
 
     @Override
-    public void onStep(StepOnEvent event) {
-
+    public float getResistance() {
+        return 0;
     }
 
     @Override
-    public void onPlace(PlaceEvent event) {
-
-    }
-
-    @Override
-    public void onClick(ClickEvent clickEvent) {
-
+    public int getHarvestLevel() {
+        return 0;
     }
 }

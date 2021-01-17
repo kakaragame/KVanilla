@@ -1,13 +1,11 @@
 package org.kakara.kvanilla.items.blocks.stone;
 
-import org.kakara.core.annotations.Hardness;
-import org.kakara.core.annotations.Key;
-import org.kakara.core.annotations.Name;
-import org.kakara.core.annotations.Texture;
-import org.kakara.core.events.entity.StepOnEvent;
-import org.kakara.core.events.player.PlaceEvent;
-import org.kakara.core.events.player.click.ClickEvent;
-import org.kakara.core.mod.Mod;
+import org.kakara.core.common.annotations.Hardness;
+import org.kakara.core.common.annotations.Key;
+import org.kakara.core.common.annotations.Name;
+import org.kakara.core.common.annotations.Texture;
+import org.kakara.core.common.mod.Mod;
+import org.kakara.core.common.mod.game.GameMod;
 import org.kakara.kvanilla.bases.StoneBase;
 
 /***
@@ -20,22 +18,18 @@ import org.kakara.kvanilla.bases.StoneBase;
 @Key("infinity_stone")
 @Hardness(10)
 public class InfinityStone extends StoneBase {
-    public InfinityStone(Mod mod) {
+    public InfinityStone(GameMod mod) {
         super(mod);
     }
 
-    @Override
-    public void onStep(StepOnEvent event) {
 
+    @Override
+    public float getResistance() {
+        return 0;
     }
 
     @Override
-    public void onPlace(PlaceEvent event) {
-
-    }
-
-    @Override
-    public void onClick(ClickEvent clickEvent) {
-
+    public int getHarvestLevel() {
+        return 0;
     }
 }
